@@ -18,10 +18,11 @@ print(dataset)
 
 instruction_format = "How to make '{}' from the following ingredients?"
 json_data = []
+tqdm_bar = tqdm.tqdm(total=len(dataset["train"]))
 for data in dataset["train"]:
     instruction = instruction_format.format(data["title"])
     output = ""
-    for i, direction in tqdm(enumerate(data["directions"])):
+    for i, direction in enumerate(data["directions"]):
         output += f"{i+1}. {direction}\n"
     input = str(data["ner"])
     input = input[1:-1] # remove the square brackets
@@ -33,8 +34,12 @@ for data in dataset["train"]:
             "output": output,
         }
     )
+    tqdm_bar.update(1)
+
+tqdm_bar.close()
 
 # %%
 # save the dataset
+print("Saving the dataset...")
 with open("recipe_nlg.json", "w") as f:
     json.dump(json_data, f, indent=4)
