@@ -25,9 +25,11 @@ for data in dataset["train"]:
     output = data["title"]
     for i, direction in enumerate(data["directions"]):
         output += f"{i+1}. {direction}\n"
-    input = str(data["ner"])
-    input = input[1:-1] # remove the square brackets
-
+    input = ""
+    for ner in data["ner"]:
+        input += ner + ", "
+    input = input[:-2]
+    
     json_data.append(
         {
             "instruction": instruction,
