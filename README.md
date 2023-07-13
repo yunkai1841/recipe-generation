@@ -1,5 +1,4 @@
 # recipe-generation
-![Static Badge](https://img.shields.io/badge/under%20implementation-orange?style=for-the-badge)
 
 NLP Text generation task. Generate recipe from ingredients.
 
@@ -24,10 +23,13 @@ python script/summary_dataset.py
 python script/subset_dataset.py
 ```
 
-## train
+## Train
 1. Install requirements for [LLaMA-Adapter](LLaMA-Adapter/README.md).
 2. Run [train.sh](train.sh) to train model.  
-Spec: RTX A6000, 20 min / 
+Spec: RTX A6000, 20 min for 1k train dataset
+3. Run
+[LLaMA-Adapter/alpaca_finetuning_v1/extract_adapter_from_checkpoint.py](LLaMA-Adapter/alpaca_finetuning_v1/extract_adapter_from_checkpoint.py)
+to extract adapter from checkpoint.
 
 **NOTE** 30GB GPU memory is required.
 
