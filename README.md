@@ -27,9 +27,16 @@ python script/subset_dataset.py
 ## train
 1. Install requirements for [LLaMA-Adapter](LLaMA-Adapter/README.md).
 2. Run [train.sh](train.sh) to train model.  
-Spec: RTX A6000, 20 min
+Spec: RTX A6000, 20 min / 
 
 **NOTE** 30GB GPU memory is required.
 
 **NOTE2** Windows is not supported.
 
+## Inference
+1. Install requirements for [LLaMA-Adapter](LLaMA-Adapter/README.md).
+2. Put adapter model at `adapter-model/recipe_adapter_len10_layer30_epoch5.pth`
+3. Run [run_app.sh](run_app.sh) to run web app.  
+Spec: RTX A6000, 20 sec / 1 inference
+
+**NOTE** 22GB GPU memory is required.
