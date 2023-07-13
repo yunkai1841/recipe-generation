@@ -8,6 +8,7 @@ dataset_path = "data/recipe_nlg.json"
 target_dataset_path = "data/recipe_nlg_subset.json"
 summary_file = "data/summary.csv"
 
+
 def subset_dataset(maxtokens: int, choosenum: int, random: bool = True):
     print("loading...")
     csv_data = []
@@ -45,7 +46,7 @@ def subset_dataset(maxtokens: int, choosenum: int, random: bool = True):
         subset.append(dataset[i])
     with open(target_dataset_path, "w") as f:
         json.dump(subset, f, indent=4)
-        
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

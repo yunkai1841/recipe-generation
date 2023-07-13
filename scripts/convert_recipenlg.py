@@ -1,4 +1,3 @@
-# %%
 from datasets import load_dataset
 import tqdm
 import json
@@ -9,11 +8,9 @@ import json
 dataset_dir = "data"
 dataset = load_dataset("recipe_nlg", data_dir=dataset_dir)
 
-# %%
 # print the dataset info
 print(dataset)
 
-# %%
 # format the dataset into alpaca format
 
 instruction_format = "Generate a recipe with these ingredients."
@@ -22,14 +19,14 @@ json_data = []
 tqdm_bar = tqdm.tqdm(total=len(dataset["train"]))
 for data in dataset["train"]:
     instruction = instruction_format
-    output = data["title"]
+    output = data["title"] + "\n"
     for i, direction in enumerate(data["directions"]):
         output += f"{i+1}. {direction}\n"
     input = ""
     for ner in data["ner"]:
         input += ner + ", "
     input = input[:-2]
-    
+
     json_data.append(
         {
             "instruction": instruction,
@@ -41,7 +38,6 @@ for data in dataset["train"]:
 
 tqdm_bar.close()
 
-# %%
 # save the dataset
 print("Saving the dataset...")
 with open("data/recipe_nlg.json", "w") as f:
