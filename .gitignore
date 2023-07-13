@@ -2,6 +2,7 @@ data/
 .vscode/
 LLaMA-Adapter/
 LLaMA*/
+adapter-model/
 
 *.pth
 *.model
