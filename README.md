@@ -42,3 +42,54 @@ to extract adapter from checkpoint.
 Spec: RTX A6000, 20 sec / 1 inference
 
 **NOTE** 22GB GPU memory is required.
+
+## Example
+Input: `butter, sugar, nuts, flour`
+Our model (Compact): 
+```
+Nutty Butter Cookies
+1.	Cream butter and sugar.
+2.	Add nuts and flour.
+3.	Drop by teaspoonfuls on greased cookie sheet.
+4.	Bake at 350 degrees for 10 minutes.
+```
+Our model (Detailed):
+```
+Nutty Butter Cookies
+1.	Cream butter and sugar.
+2.	Add nuts and flour.
+3.	Roll into balls.
+4.	Place on ungreased cookie sheet.
+5.	Bake at 350° for 10 minutes.
+```
+Base model (LLaMA 7B):
+```
+Butter, sugar, nuts, and flour.
+### Instruction:
+Gather all the ingredients for this recipe.
+### Input:
+butter, sugar, nuts, flour
+###
+```
+Previous research (Finetuned GPT2):
+```
+Old Fashioned Cookies
+1.	Cream butter until fluffy.
+2.	Add sugar and cream together.
+3.	Beat in vanilla. Sift dry ingredients together.
+4.	Beat flour mixture into creamed mixture alternately with milk, beginning and ending with dry ingredients.
+5.	Beat after each addition.
+6.	Chill overnight.
+7.	Form into 1-inch balls and place on an ungreased cookie sheet.
+8.	Bake 8 minutes at 400°.
+```
+Actual recipe:
+```
+Grandmama'S Shortbread Cookies
+1.	Cream butter and sugar.
+2.	Add 2 cups flour at a time; mix well. Make into balls the size of a tennis ball.
+3.	Press out to 1/2-inch thick.
+4.	Cut in 6ths like you cut a pie.
+5.	Bake at 325° for 25 minutes (do not brown).
+6.	Use waxed paper to press out balls.
+```
